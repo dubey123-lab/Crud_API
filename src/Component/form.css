@@ -8,3 +8,9 @@
     flex-direction: column;
     width: 200px;
 }
+
+.table_div{
+    width: 60%;
+    display: inline-block;
+    padding-top: 30px;
+}

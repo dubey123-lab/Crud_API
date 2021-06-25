@@ -1,60 +1,48 @@
-import React, { useState } from 'react'
-import "./form.css"
+import React , {useState , useEffect} from "react";
+import { Addform } from "./Addform";
+import "./form.css";
+import Table from "./Table";
+import Updateform from "./Updateform";
 
 const Form = (props) => {
     console.log(props);
-    const [myFiled, setmyFiled] = useState({
-        firstname: "",
-        lastname: "",
-        email: "",
-        phone: ""
+    // const [myFiled, setmyFiled] = useState({
+    //     id: Math.random() * 100,
+    //     name: "",
+    //     username: "",
+    //     email: "",
+    //     phone: "",
+    // });
 
-    })
-
-    const handleChange = (e) => {
-        const name = e.target.name;
-        const value = e.target.value;
-
-        setmyFiled({ ...myFiled, [name]: value })
-        console.log(myFiled);
-    }
-
-
-    
    
+    useEffect(() => {
+        props.fetchUser();
+    }, []);
+
+    // const handleChange = (e) => {
+    //     const name = e.target.name;
+    //     const value = e.target.value;
+
+    //     setmyFiled({ ...myFiled, [name]: value });
+    //     console.log(myFiled);
+    // };
+
+    // const clearData = () => {
+    //     setmyFiled({ name: "", username: "", email: "", phone: "" });
+    // };}
+
+ 
+
     return (
         <>
-            <div className="form-div">
 
-                <form>
-                    <div class="input-div">
-                        <label>First Name</label>
-                        <input type="text" name="firstname" value={myFiled.firstname} placeholder="Enter First Name" onChange={handleChange} autoComplete="off" />
-                    </div>
-
-                    <div class="input-div">
-                        <label>Last Name</label>
-                        <input type="text" name="lastname" value={myFiled.lastname} placeholder="Enter Last Name" onChange={handleChange} autoComplete="off" />
-                    </div>
-
-                    <div class="input-div">
-                        <label>Email</label>
-                        <input type="email" name="email" value={myFiled.email} placeholder="Enter Email" onChange={handleChange} autoComplete="off" />
-                    </div>
-
-                    <div class="input-div">
-                        <label>Mobile Number</label>
-                        <input type="text" name="phone" value={myFiled.phone} placeholder="Enter Mobile Number" onChange={handleChange} autoComplete="off" />
-                    </div>
-
-                    <button type="button" className="btn-submit" onClick={()=>{props.saveData(myFiled)}}>Submit</button>
-                    <button className="btn-submit">Clear</button>
-
-                </form>
-            </div>
-
+          {props.userdata.reducer.isToggle  ? <Updateform value={props} />  : <Addform value={props} />}
+            <Table
+                tableData={props}
+                
+            />
         </>
-    )
-}
+    );
+};
 
-export default Form
+export default Form;

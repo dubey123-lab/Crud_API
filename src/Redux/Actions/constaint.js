@@ -1,1 +1,6 @@
 export const SAVE_DATA = "SAVE_DATA"
+export const SHOW_DATA = "SHOW_DATA"
+export const DELETE_DATA = "DELETE_DATA"
+export const UPDATE = "UPDATE"
+export const SAVE_UPDATE = "SAVE_UPDATE"
+export const SORT_DATA = "SORT_DATA"
