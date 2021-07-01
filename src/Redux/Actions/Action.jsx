@@ -100,8 +100,10 @@ export const fetchUser = () =>{
 }
 
 
- export const sortData = () =>{
+ export const sortData = (key) =>{
+     console.log("selected filed is " , key);
         return {
-            type : SORT_DATA
+            type : SORT_DATA,
+            payload : key
         }
  }
