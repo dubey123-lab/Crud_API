@@ -44,9 +44,17 @@ const DynamicForm = () => {
     // console.log("copyData", copyData);
   };
 
+  // useEffect(() => {
+  //   localStorage.setItem("inputValue", JSON.stringify(data))
+  //   console.log("<!-------Set Data LocalStorage ------>", data);
+  //   let localStorageData = localStorage.getItem("inputValue")
+  //   console.log("<!-----localStorageData--------!>", localStorageData);
+
+
+  // }, [data])
   const handleSubmit = () => {
     const finalData = data.map((item, index) => {
-      console.log(item);
+      console.log(data);
       // let hobbiesControl = document.querySelectorAll(`#hobby_${index}`).forEach((item) => {
       //   console.log(item.value);
       //   return item.value;
@@ -66,8 +74,12 @@ const DynamicForm = () => {
     });
 
     console.log({ finalData });
+    localStorage.setItem("inputValue", JSON.stringify(finalData))
+    let localStorageData = localStorage.getItem("inputValue");
+    console.log("<!----- Fetch LocalStorage Data ---------> ", localStorageData);
+    let convertStingtoObj = JSON.parse(localStorageData)
+    console.log("<!--------- Local Storage convert Data ---------->", convertStingtoObj);
     _setData(finalData);
-    localStorage.setItem('inputvalue', JSON.stringify(data))
 
 
     // const finalData = data.map((item, index) => ({
@@ -78,6 +90,11 @@ const DynamicForm = () => {
     //   hobby: document.getElementById(`hobby_${item.id}_${item.hobby.index}`).value,
     // }));
   };
+
+  // useEffect(() => {
+  //   localStorage.setItem('inputvalue', JSON.stringify(data))
+
+  // })
 
   const addHobiesColumn = (id) => {
     const newData = data.map((value, index) => {
