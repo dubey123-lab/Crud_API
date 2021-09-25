@@ -1,49 +1,46 @@
 import "./App.css";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 import About from "./Component/Routingdemo/About";
 import User from "./Component/Routingdemo/User";
 import Home from "./Component/Routingdemo/Home";
 import Dynamicform from "./Component/Dyanamicformcom/Dynamicform";
+import SideBarNavbar from "./Component/Routingdemo/SideBarNavbar";
+import LoginForm from "./Component/Routingdemo/LoginForm";
+import Protected from "./Component/Routingdemo/Protected";
+import LoginContext from "./Contexts/login";
+import DynamicForm from "./Component/Dyanamicformcom/Dynamicform";
 
 function App() {
+  // const [userData, _setUserData] = useState(null);
+  // const [isLoading, _setIsLoading] = useState(true);
+
+  // useEffect(() => {
+  //   const userData = JSON.parse(localStorage.getItem("uservalue"));
+
+  //   _setUserData(userData);
+  //   _setIsLoading(false);
+  // }, []);
+
+  // const setUserData = (data) => _setUserData(data);
+
+  // if (isLoading) return <h1>Loading ......</h1>;
+
   return (
     <>
-      <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/users">Users</Link>
-              </li>
+      {/* <LoginContext.Provider value={{ userData, setUserData }}>
+        <Router>
+          <div>
+          
 
-              <li>
-                <Link to="/form">Dynamicform</Link>
-              </li>
-            </ul>
-          </nav>
-
-          <Switch>
-            <Route path="/about">
-              <About />
+            <Route exact path="/" component={LoginForm} />
+            <Route path="/home/dash">
+              <Protected Cmp={Home} />
             </Route>
-            <Route path="/users">
-              <User></User>
-            </Route>{" "}
-            <Route path="/form">
-              <Dynamicform />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
+          </div>
+        </Router>
+      </LoginContext.Provider> */}
+      <DynamicForm />
     </>
   );
 }

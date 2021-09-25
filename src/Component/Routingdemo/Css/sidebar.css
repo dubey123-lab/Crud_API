@@ -1,0 +1,15 @@
+.sidebar-div {
+  display: flex;
+}
+.sidebar-menu {
+  background-color: grey;
+  height: 580px;
+  width: 30%;
+}
+.menu-link {
+  text-decoration: none;
+  font-size: 20px;
+  padding-top: 50px;
+  text-align: center;
+  color: white;
+}

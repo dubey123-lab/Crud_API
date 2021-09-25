@@ -1,0 +1,16 @@
+.nav-div {
+  display: flex;
+  background-color: orange;
+  color: white;
+}
+.logout-div {
+  margin-left: auto;
+}
+
+.logout-div .nav-link {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+}
